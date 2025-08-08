@@ -1,5 +1,5 @@
 from terminalExec import terminal_exec
-from chatGPTcall import call_chatgpt
+from geminiCall import call_gemini
 
 print(terminal_exec("ls"))
-print(call_chatgpt("ciao"))
+print(call_gemini("Scrivi una breve poesia sulla luna."))

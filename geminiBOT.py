@@ -28,6 +28,10 @@ def geminiBOT(req: str):
             res = exec_gemini_command(terminalOutPut)
             if(res["error"] != ""):
                 raise Exception(res["error"])
+        print("RISPOSTA:")
         print(res["response"])
+        return res["response"]
     except Exception as e:
+        print("ERRORE:")
         print(f"Errore durante l'esecuzione: {e}")
+        return f"Errore durante l'esecuzione: {e}"

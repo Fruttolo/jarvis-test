@@ -1,7 +1,13 @@
-from flask import Flask, request, jsonify
-from geminiBOT import geminiBOT
 
-app = Flask(__name__)
+from flask import Flask, request, jsonify, send_from_directory
+from geminiBOT import geminiBOT
+import os
+
+app = Flask(__name__, static_folder='.', static_url_path='')
+@app.route('/')
+def index():
+    return send_from_directory('.', 'frontend.html')
+
 
 @app.route('/ask', methods=['POST'])
 def ask():

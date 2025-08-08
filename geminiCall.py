@@ -17,6 +17,10 @@ model = genai.GenerativeModel(model_name, system_instruction=contesto)
 
 chat = model.start_chat()
 
+def reset_chat():
+    global chat
+    chat = model.start_chat()
+
 def call_gemini(prompt: str) -> str:
 
     try:

@@ -1,11 +1,13 @@
 
 from flask import Flask, request, jsonify, send_from_directory
 from geminiBOT import geminiBOT
+from geminiCall import reset_chat
 import os
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 @app.route('/')
 def index():
+    reset_chat()
     return send_from_directory('.', 'frontend.html')
 
 

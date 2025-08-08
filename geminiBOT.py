@@ -1,6 +1,8 @@
 from terminalExec import terminal_exec
-from geminiCall import call_gemini
+from geminiCall import GeminiChatManager
 import json
+
+chat_manager = GeminiChatManager()
 
 def exec_gemini_command(com: str):
     user = {
@@ -8,7 +10,7 @@ def exec_gemini_command(com: str):
         "user": ""
     }
     user_json = json.dumps(user)
-    return call_gemini(user_json)
+    return chat_manager.call_gemini(user_json)
 
 def ask_gemini(usr: str):
     user = {
@@ -16,7 +18,10 @@ def ask_gemini(usr: str):
         "user": usr
     }
     user_json = json.dumps(user)
-    return call_gemini(user_json)
+    return chat_manager.call_gemini(user_json)
+
+def reset_chat():
+    chat_manager.start_new_chat()
 
 def geminiBOT(req: str):
     res = ask_gemini(req)

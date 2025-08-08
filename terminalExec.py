@@ -2,6 +2,8 @@ import subprocess
 
 def terminal_exec(command: str) -> str:
     try:
+        input(command)
+        
         # Esegue il comando e cattura l'output
         risultato = subprocess.run(
             command,

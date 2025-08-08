@@ -1,4 +1,4 @@
-.env
 __pycache__
 .venv
+.env
 jarvis_prompt.txt

@@ -1,4 +1,7 @@
 
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 from flask import Flask, request, jsonify, send_from_directory
 from geminiBOT import geminiBOT
 from geminiCall import reset_chat

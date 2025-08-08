@@ -4,8 +4,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-def call_chatgpt(prompt: str, model: str = "gpt-3.5-turbo") -> str:
+def call_chatgpt(prompt: str) -> str:
     openai.api_key = os.getenv("OPENAI_API_KEY")
+    model = os.getenv("OPENAI_MODEL")
     response = openai.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}]

@@ -18,8 +18,7 @@ def ask_gemini(usr: str):
     user_json = json.dumps(user)
     return call_gemini(user_json)
 
-def geminiBOT():
-    req = input("RICHIESTA: ")
+def geminiBOT(req: str):
     res = ask_gemini(req)
     try:
         if(res["error"] != ""):
@@ -32,6 +31,3 @@ def geminiBOT():
         print(res["response"])
     except Exception as e:
         print(f"Errore durante l'esecuzione: {e}")
-
-while True:
-    geminiBOT()

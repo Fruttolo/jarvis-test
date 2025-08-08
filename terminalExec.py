@@ -3,7 +3,6 @@ import subprocess
 def terminal_exec(command: str) -> str:
     try:
         print(f"COMANDO:\n{command}")
-        input()
         
         # Esegue il comando e cattura l'output
         risultato = subprocess.run(

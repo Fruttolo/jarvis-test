@@ -13,16 +13,18 @@
     </style>
 </head>
 <body>
-    <div id="container">
-        <h2>Gemini BOT</h2>
-        <textarea id="userInput" placeholder="Scrivi qui la tua richiesta..."></textarea>
-        <button onclick="sendRequest()">Invia</button>
-        <div id="response"></div>
+    <div id="container" style="display: flex; flex-direction: column; align-items: center;">
+        <h2 style="text-align: center; width: 100%;">Gemini BOT</h2>
+        <textarea id="userInput" placeholder="Scrivi qui la tua richiesta..." style="text-align: center;"></textarea>
+        <button onclick="sendRequest()" style="align-self: flex-end;">Invia</button>
+        <div id="response" style="text-align: center; width: 100%;"></div>
     </div>
     <script>
         function sendRequest() {
-            const req = document.getElementById('userInput').value;
+            const userInput = document.getElementById('userInput');
+            const req = userInput.value;
             document.getElementById('response').innerText = 'Attendi...';
+            userInput.value = ''; // Svuota il textarea
             fetch('/ask', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
